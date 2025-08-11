@@ -9,3 +9,16 @@ body{
     margin: 0;
     background-color: whitesmoke;
 }
+
+header, footer {
+    width: 100%;
+    background-color: red;
+}
+
+header {
+    height: 15vh;
+}
+
+footer {
+    height: 5vh;
+}
