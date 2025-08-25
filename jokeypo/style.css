@@ -1,0 +1,40 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+main{
+    background: linear-gradient(45deg,rgba(191, 27, 27, 1) 6%, rgba(230, 129, 129, 1) 92%);
+	width: 100%;
+	height: 100vh;
+	max-height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
+}
+
+
+li{
+	margin-left: 5%;
+}
+
+
+hr{
+	height: 1vh;
+	margin-top: 5%;
+	background-color: red;
+	border-radius: 50%;
+}
+
+img{
+	width: 100%;	
+	height: 10vh;
+	border-radius: 50%;
+}
+button {
+    width: 110%;
+    height: 3.5vh;
+    background-image: linear-gradient(45deg,rgba(42, 123, 155, 1) 0%, rgba(72, 212, 202, 1) 25%, rgba(62, 158, 145, 1) 0%, rgba(87, 111, 199, 1) 67%, rgba(232, 30, 30, 1) 100%);
+    color: black;
+    border-radius: 5%;
+}
