@@ -37,4 +37,51 @@ button {
     background-image: linear-gradient(45deg,rgba(42, 123, 155, 1) 0%, rgba(72, 212, 202, 1) 25%, rgba(62, 158, 145, 1) 0%, rgba(87, 111, 199, 1) 67%, rgba(232, 30, 30, 1) 100%);
     color: black;
     border-radius: 5%;
+	box-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px, 0 0 30px black;
+}
+
+.titulo {
+	width: 90%;
+	max-width: 90%;
+	height: 25vh;
+	background-color: red;
+	margin-top: 5%;
+	padding: 2%;
+	border-radius: 10%.0;
+	display: grid;
+	row-gap: 5%;
+	justify-content: center;
+}
+
+.corpo{
+	width: 90%;
+	max-width: 90%;
+	height: 60vh;
+	max-height: 60vh;
+	background-color: blue;
+	display: grid;
+	justify-content: center;
+	margin-bottom: 5%;
+}
+
+.elipse{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	width: 90%;
+	max-width: 90%;
+	height: 25vh;
+	max-height: 25vh;
+	margin-top: 1%;
+	background-color: blue;
+	border-radius: 50%;
+	border: 5px outset red;
+}
+
+.literalmente{
+	width: 20%;
+	max-width: 20%;
+	height: 15vh;
+	max-height: 10vh;
+	
 }
