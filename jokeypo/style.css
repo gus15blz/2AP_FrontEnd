@@ -85,3 +85,29 @@ button {
 	max-height: 10vh;
 	
 }
+
+.literalmente{
+  width:20%;
+  max-width:20%;
+  height:15vh;
+  max-height:15vh;
+  text-align:center;
+  align-content:center;
+  border:5px inset black;
+  border-radius:50%;
+  background-color:white;
+}
+#placar{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  max-width: 30%;
+  height: 8vh;
+  max-height: 8vh;
+  background-color: hotpink;
+  color: black;
+  border: 5px inset white;
+  font-family: arial;
+  border-radius: 15%;
+}

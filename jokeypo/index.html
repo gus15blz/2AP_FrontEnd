@@ -9,31 +9,33 @@
 <body>
     
 <main>
-  <section class="titulo">
-    <h1>Pedra, Papel e Tesoura</h1>
+  <section class='titulo'>
+    <h3> Jokempo </h3>
     <ul>
-      <li>
-        Existem 3 imagens na tela, pedra, papel ou tesoura.
-      </li>
-      <li>Você pode escolher qualquer uma das opções</li>
-      <li>Ao clicar em algum, gera um placar contra a maquina onde mostra os resultados, quem ganhar 5 partidas primeiro vence o jogo.</li>
+      <li>clique no botão novo jogo</li>
+      <li> clique na imagem que deseja escolher</li>
+      <li> quem alcançar 3 pontos vence o jogo</li>
     </ul>
     <hr/>
-  </section>
-  <section class="corpo">
-   <div id="elipse">
-     <div class="literalmente"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgUx7dXwhb3P5wcszaOPZokb79j_uHmH_BSA&s" alt="pedra"></div>
-     <div class="literalmente"><img src="https://cdn.entrypoint.directory/assets/46588/produtos/9318/7356037829-parana-revertido.jpg" alt="papel"></div>
-     <div class="literalmente"><img src="https://acdn-us.mitiendanube.com/stores/001/750/861/products/unicornio-rosa-tesoura-decorada-fofa-brw-001-2243de103ac5fb76f717360289099381-1024-1024.png" alt="tesoura"></div>
-   </div>
-    <button>Novo Jogo</button>
+    </section>
+
+    <section class='corpo'>
+  <div class="elipse">
+    <div class="literalmente"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjicecHXxksxfdATDuFhZqZuHcZbiDx-v_vL7hreRjN5HtQXXdDtXrkIi0CZ7IjCKFHig&usqp=CAU" ></div>
+    <div class="literalmente"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyFDmxDZ2X86KkWU-X5vgfxxWynTIsgAvj6QT9SbCMXl1VuKlCKqtD3XMGvDKSxzg0_WM&usqp=CAU" ></div>
+    <div class="literalmente"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJOUiAeYH559y5PuvP2rwqYs34vnYc6_Rta7y85q1O6SFDqY5p9VmOZqtvDYckxZ9eVN0&usqp=CAU" ></div>
+  </div>
+  <button> Novo Jogo</button>
+  <div id='placar'>
     <div id="placar">
-      <p>0</p>
-      <p>x</p>
-      <p>0</p>
+      <p id="ptsJog"> 1</p>
+      <p> x</p>
+      <p id="ptsPc"> 0</p>
     </div>
-  </section>
+    </section>
 </main>
+
+<script src="js.js"></script>
 
 </body>
 </html>
