@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileExplorer - Aplicativo</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header estilo explorador -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="logo.svg" alt="FileExplorer Logo" class="logo-img">
+                <span>FileExplorer</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" title="Voltar">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="nav-btn" title="Avançar">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="nav-btn" title="Subir">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+                <button class="nav-btn" title="Atualizar">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+            <div class="path-bar">
+                <i class="fas fa-home"></i>
+                <span>/</span>
+                <span>Meus Projetos</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="view-options">
+                <button class="view-btn active" title="Visualização em lista">
+                    <i class="fas fa-list"></i>
+                </button>
+                <button class="view-btn" title="Visualização em grade">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button class="view-btn" title="Visualização em detalhes">
+                    <i class="fas fa-th-list"></i>
+                </button>
+            </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar arquivos..." id="searchInput">
+            </div>
+            <button class="theme-toggle" id="themeToggle" title="Alternar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="about.html" class="about-btn" title="Sobre nós">
+                <i class="fas fa-info-circle"></i>
+            </a>
+            <a href="index.html" class="home-btn" title="Página inicial">
+                <i class="fas fa-home"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Sidebar estilo explorador -->
+    <div class="container" id="main-app">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>
+                    <i class="fas fa-folder"></i>
+                    Navegação
+                </h3>
+                <button class="btn-collapse">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            
+            <div class="quick-access">
+                <h4>Acesso Rápido</h4>
+                <div class="quick-item">
+                    <i class="fas fa-home"></i>
+                    <span>Início</span>
+                </div>
+                <div class="quick-item">
+                    <i class="fas fa-download"></i>
+                    <span>Downloads</span>
+                </div>
+                <div class="quick-item">
+                    <i class="fas fa-image"></i>
+                    <span>Imagens</span>
+                </div>
+                <div class="quick-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Documentos</span>
+                </div>
+            </div>
+            
+            <div class="file-tree">
+                <div class="folder-header" onclick="toggleFolder(this)">
+                    <i class="fas fa-chevron-right"></i>
+                    <i class="fas fa-folder"></i>
+                    <span>Meus Projetos</span>
+                </div>
+                <div class="folder-content">
+                    <div class="folder-item" onclick="toggleFolder(this)">
+                        <i class="fas fa-chevron-right"></i>
+                        <i class="fas fa-folder"></i>
+                        <span>Desenvolvimento</span>
+                    </div>
+                    <div class="folder-content">
+                        <div class="file-item">
+                            <i class="fas fa-file-code"></i>
+                            <span>index.html</span>
+                        </div>
+                        <div class="file-item">
+                            <i class="fas fa-file-code"></i>
+                            <span>style.css</span>
+                        </div>
+                        <div class="file-item">
+                            <i class="fas fa-file-code"></i>
+                            <span>script.js</span>
+                        </div>
+                    </div>
+                    <div class="folder-item" onclick="toggleFolder(this)">
+                        <i class="fas fa-chevron-right"></i>
+                        <i class="fas fa-folder"></i>
+                        <span>Design</span>
+                    </div>
+                    <div class="folder-content">
+                        <div class="file-item">
+                            <i class="fas fa-image"></i>
+                            <span>logo.svg</span>
+                        </div>
+                        <div class="file-item">
+                            <i class="fas fa-image"></i>
+                            <span>mockup.png</span>
+                        </div>
+                    </div>
+                    <div class="file-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>projeto.pdf</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+            <div class="content-header">
+                <div class="content-info">
+                    <h2>Meus Projetos</h2>
+                    <span class="item-count">8 itens</span>
+                </div>
+                <div class="content-actions">
+                    <button class="btn-action">
+                        <i class="fas fa-plus"></i>
+                        Novo
+                    </button>
+                    <button class="btn-action">
+                        <i class="fas fa-upload"></i>
+                        Upload
+                    </button>
+                    <button class="btn-action">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </button>
+                </div>
+            </div>
+            
+            <div class="file-grid">
+                <div class="file-card" data-file="index.html">
+                    <div class="file-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <div class="file-name">index.html</div>
+                    <div class="file-meta">2.5 KB • Hoje</div>
+                </div>
+                
+                <div class="file-card" data-file="style.css">
+                    <div class="file-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <div class="file-name">style.css</div>
+                    <div class="file-meta">15.2 KB • Hoje</div>
+                </div>
+                
+                <div class="file-card" data-file="script.js">
+                    <div class="file-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <div class="file-name">script.js</div>
+                    <div class="file-meta">8.7 KB • Hoje</div>
+                </div>
+                
+                <div class="file-card" data-file="logo.svg">
+                    <div class="file-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="file-name">logo.svg</div>
+                    <div class="file-meta">3.1 KB • Ontem</div>
+                </div>
+                
+                <div class="file-card" data-file="mockup.png">
+                    <div class="file-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="file-name">mockup.png</div>
+                    <div class="file-meta">245 KB • 2 dias</div>
+                </div>
+                
+                <div class="file-card" data-file="projeto.pdf">
+                    <div class="file-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="file-name">projeto.pdf</div>
+                    <div class="file-meta">1.2 MB • 3 dias</div>
+                </div>
+                
+                <div class="file-card" data-file="documento.docx">
+                    <div class="file-icon">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <div class="file-name">documento.docx</div>
+                    <div class="file-meta">156 KB • 1 semana</div>
+                </div>
+                
+                <div class="file-card" data-file="planilha.xlsx">
+                    <div class="file-icon">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <div class="file-name">planilha.xlsx</div>
+                    <div class="file-meta">89 KB • 2 semanas</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de detalhes do arquivo -->
+    <div class="file-details" id="fileDetails">
+        <div class="details-header">
+            <div class="file-icon-large">
+                <i class="fas fa-file-code"></i>
+            </div>
+            <div class="file-info">
+                <h3 id="fileName">Arquivo</h3>
+                <p id="fileType">Tipo de arquivo</p>
+            </div>
+            <button class="btn-close" onclick="closeDetails()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="details-content">
+            <div class="details-tabs">
+                <button class="detail-tab active" data-tab="properties">Propriedades</button>
+                <button class="detail-tab" data-tab="preview">Visualização</button>
+                <button class="detail-tab" data-tab="actions">Ações</button>
+            </div>
+            
+            <div class="tab-content">
+                <div class="property-group">
+                    <div class="property-item">
+                        <span class="property-label">Nome:</span>
+                        <span class="property-value" id="propName">-</span>
+                    </div>
+                    <div class="property-item">
+                        <span class="property-label">Tamanho:</span>
+                        <span class="property-value" id="propSize">-</span>
+                    </div>
+                    <div class="property-item">
+                        <span class="property-label">Tipo:</span>
+                        <span class="property-value" id="propType">-</span>
+                    </div>
+                    <div class="property-item">
+                        <span class="property-label">Modificado:</span>
+                        <span class="property-value" id="propModified">-</span>
+                    </div>
+                    <div class="property-item">
+                        <span class="property-label">Criado:</span>
+                        <span class="property-value" id="propCreated">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
