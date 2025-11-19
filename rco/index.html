@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema RCO - Registro de Classe Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Tela de Início/Login -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-box">
+                <div class="login-header">
+                    <h1 class="login-title">Sistema RCO</h1>
+                    <p class="login-subtitle">Registro de Classe Online</p>
+                </div>
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="username">Usuário</label>
+                        <input type="text" id="username" required placeholder="Digite seu usuário" autocomplete="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" required placeholder="Digite sua senha" autocomplete="current-password">
+                    </div>
+                    <button type="submit" class="login-btn">Entrar</button>
+                    <div class="login-info">
+                        <p>Usuário: <strong>professor andre</strong></p>
+                        <p>Senha: <strong>123</strong></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sistema Principal (oculto inicialmente) -->
+    <div id="mainSystem" class="main-system" style="display: none;">
+        <div class="crt-screen">
+            <div class="scanlines"></div>
+            
+            <!-- Header -->
+            <header class="system-header">
+                <div class="header-main">
+                    <div class="container">
+                        <div class="header-content">
+                            <div class="header-title-section">
+                                <h1 class="system-title">Sistema RCO</h1>
+                                <p class="system-subtitle">Registro de Classe Online</p>
+                            </div>
+                            <button id="logoutBtn" class="logout-btn">Sair</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- Menu Lateral (Aside) -->
+                <aside class="sidebar">
+                    <nav class="sidebar-nav">
+                        <button class="menu-item active" data-section="attendance">
+                            <span class="menu-icon">📋</span>
+                            <span class="menu-text">Chamada</span>
+                        </button>
+                        <button class="menu-item" data-section="grades">
+                            <span class="menu-icon">📝</span>
+                            <span class="menu-text">Notas</span>
+                        </button>
+                        <button class="menu-item" data-section="reports">
+                            <span class="menu-icon">📊</span>
+                            <span class="menu-text">Relatórios</span>
+                        </button>
+                    </nav>
+                </aside>
+
+                <!-- Conteúdo Principal -->
+                <main class="main-content">
+                    <!-- Seção: Chamada -->
+                    <section id="section-attendance" class="content-section active">
+                        <div class="section-panel">
+                            <div class="panel-header">
+                                <h2>Registro de Chamada</h2>
+                            </div>
+                            <div class="panel-content">
+                                <!-- Filtros -->
+                                <div class="attendance-filters">
+                                    <div class="filter-group">
+                                        <label for="attendanceClass">Turma</label>
+                                        <select id="attendanceClass">
+                                            <option value="">Todas as turmas</option>
+                                            <option value="1AP">1 AP - Médio Técnico</option>
+                                            <option value="2AP">2 AP - Médio Técnico</option>
+                                            <option value="3AP">3 AP - Médio Técnico</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label for="attendanceDate">Data</label>
+                                        <input type="date" id="attendanceDate" required>
+                                    </div>
+                                    <button id="loadAttendance" class="filter-btn">Carregar Lista</button>
+                                </div>
+
+                                <!-- Tabela de Chamada -->
+                                <div class="attendance-table-container">
+                                    <table class="attendance-table">
+                                        <thead>
+                                            <tr>
+                                                <th width="50">Nº</th>
+                                                <th>Matrícula</th>
+                                                <th>Nome do Aluno</th>
+                                                <th width="200">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="attendanceTableBody">
+                                            <tr>
+                                                <td colspan="4" class="empty-message">Selecione uma turma e data para iniciar a chamada</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="attendance-actions">
+                                    <button id="saveAttendance" class="retro-btn" disabled>Salvar Chamada</button>
+                                    <button id="selectAllPresent" class="action-btn">Marcar Todos Presentes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Seção: Notas -->
+                    <section id="section-grades" class="content-section">
+                        <div class="section-panel">
+                            <div class="panel-header">
+                                <h2>Registro de Notas</h2>
+                            </div>
+                            <div class="panel-content">
+                                <form id="gradeForm" class="retro-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="gradeStudent">Aluno</label>
+                                            <select id="gradeStudent" required>
+                                                <option value="">Selecione um aluno</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="gradeSubject">Disciplina</label>
+                                            <select id="gradeSubject" required>
+                                                <option value="">Selecione uma disciplina</option>
+                                                <option value="Matemática">Matemática</option>
+                                                <option value="Português">Português</option>
+                                                <option value="História">História</option>
+                                                <option value="Geografia">Geografia</option>
+                                                <option value="Ciências">Ciências</option>
+                                                <option value="Física">Física</option>
+                                                <option value="Química">Química</option>
+                                                <option value="Biologia">Biologia</option>
+                                                <option value="Inglês">Inglês</option>
+                                                <option value="Educação Física">Educação Física</option>
+                                                <option value="Artes">Artes</option>
+                                                <option value="Filosofia">Filosofia</option>
+                                                <option value="Sociologia">Sociologia</option>
+                                                <option value="Língua Portuguesa">Língua Portuguesa</option>
+                                                <option value="Literatura">Literatura</option>
+                                                <option value="Redação">Redação</option>
+                                                <option value="Informática">Informática</option>
+                                                <option value="Técnico Profissionalizante">Técnico Profissionalizante</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="gradeValue">Nota (0-10)</label>
+                                            <input type="number" id="gradeValue" min="0" max="10" step="0.1" required placeholder="0.0">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="gradeType">Tipo de Avaliação</label>
+                                            <select id="gradeType" required>
+                                                <option value="P1">P1 - Prova 1</option>
+                                                <option value="P2">P2 - Prova 2</option>
+                                                <option value="Trabalho">Trabalho</option>
+                                                <option value="Atividade">Atividade</option>
+                                                <option value="Outro">Outro</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="retro-btn">Registrar Nota</button>
+                                </form>
+                                <div id="gradesList" class="grades-list"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Seção: Relatórios -->
+                    <section id="section-reports" class="content-section">
+                        <div class="section-panel">
+                            <div class="panel-header">
+                                <h2>Relatórios</h2>
+                            </div>
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <label for="reportStudent">Selecionar Aluno</label>
+                                    <select id="reportStudent">
+                                        <option value="">Selecione um aluno</option>
+                                    </select>
+                                </div>
+                                <button id="generateReport" class="retro-btn">Gerar Relatório</button>
+                                <div id="reportOutput" class="report-output"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer class="system-footer">
+                        <p>Sistema RCO - Registro de Classe Online</p>
+                        <p>© 2024 - Todos os direitos reservados</p>
+                    </footer>
+                </main>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
